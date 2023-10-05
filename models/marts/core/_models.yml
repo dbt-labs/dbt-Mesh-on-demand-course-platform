@@ -1,4 +1,4 @@
 models:
   - name: fct_order_items
-    description: Order data, one row per order
+    description: Order items data, one row per order item
     access: public 
