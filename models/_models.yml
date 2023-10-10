@@ -24,7 +24,7 @@ models:
       - name: tax_rate
         data_type: float
       - name: location_opened_at
-        data_type: timestamp_ntz
+        data_type: date
       - name: ordered_month
         data_type: number
       - name: ordered_day
