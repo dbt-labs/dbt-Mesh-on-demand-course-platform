@@ -1,5 +1,7 @@
 with orders as (
     select * from {{ ref('stg_orders') }}
+    where ordered_at >= '2022-01-01'
+        and ordered_at < current_date
 ),
 
 customers as (
