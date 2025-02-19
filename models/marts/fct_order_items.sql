@@ -9,7 +9,15 @@ order_items as (
 joined as (
     select 
         order_items.*,
-        orders.* exclude (order_id)
+        orders.location_id,
+        orders.customer_id,
+        orders.order_total,
+        orders.tax_paid,
+        orders.ordered_at,
+        orders.customer_name,
+        orders.location_name,
+        orders.tax_rate,
+        orders.location_opened_at
         
     from orders 
         inner join order_items 
