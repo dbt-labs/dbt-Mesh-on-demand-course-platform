@@ -6,8 +6,8 @@ models:
     columns:
       - name: order_id
         data_type: varchar(16777216)
-        tests:
-          - not_null 
+        constraints:
+          - type: not_null 
       - name: location_id
         data_type: varchar(16777216)
       - name: customer_id
