@@ -1,0 +1,7 @@
+groups:
+  - name: finance
+    owner: 
+      name: Fern T
+  - name: product
+    owner:
+      name: Fern T2
