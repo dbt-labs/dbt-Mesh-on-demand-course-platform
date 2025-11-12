@@ -8,5 +8,6 @@ models:
       - name: customer_id
         data_tests:
           - relationships:
-              field: 'customer_id'
-              to: ref('stg_customers')
+              arguments:
+                field: 'customer_id'
+                to: ref('stg_customers')

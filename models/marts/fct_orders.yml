@@ -12,7 +12,10 @@ models:
         constraints:
           - type: not_null 
         data_tests:
-          - unique
+          - unique:
+              config:
+                error_if: "> 100"
+                warn_if: "> 10"
           - not_null
       - name: location_id
         data_type: varchar(16777216)
@@ -20,14 +23,29 @@ models:
         data_type: varchar(16777216)
         data_tests:
           - relationships:
-              field: 'customer_id'
-              to: ref('stg_customers')
+              arguments:
+                field: 'customer_id'
+                to: ref('stg_customers')
+        #  - dbt_expectations.expect_column_values_to_be_between:
+        #        min_value: 0  # (Optional)
+        #        max_value: 100 # (Optional)
+        #        strictly: false # (Optional. Default is 'false'. Adds an 'or equal to' to the comparison operator for min/max)
+
       - name: order_total
         data_type: number(38,6)
         #data_tests:
         #  - average_dollars_spent_greater_than_one:
         #      arguments:
         #        group_by_column: 'order_id'
+        data_tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 5"
+              config:
+                where: "ordered_at = current_date"
+                #limit: 5
+                #severity: warn
+                #store_failures: true
       - name: tax_paid
         data_type: number(38,6)
       - name: ordered_at

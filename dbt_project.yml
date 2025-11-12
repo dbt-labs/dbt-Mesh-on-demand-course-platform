@@ -11,14 +11,13 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-
-target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
 
-vars:
-  truncate_timespan_to: "{{ current_timestamp() }}"
+tests:
+  core_platform:
+    +store_failures: true
 
 models:
   core_platform:
