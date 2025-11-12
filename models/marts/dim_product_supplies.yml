@@ -8,6 +8,9 @@ models:
         data_type: varchar(16777216)
         constraints:
           - type: not_null
+        data_tests:
+          - unique
+          - not_null
       - name: product_name
         data_type: varchar(16777216)
       - name: product_type
