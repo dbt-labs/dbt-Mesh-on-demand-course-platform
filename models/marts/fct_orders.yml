@@ -24,6 +24,10 @@ models:
               to: ref('stg_customers')
       - name: order_total
         data_type: number(38,6)
+        #data_tests:
+        #  - average_dollars_spent_greater_than_one:
+        #      arguments:
+        #        group_by_column: 'order_id'
       - name: tax_paid
         data_type: number(38,6)
       - name: ordered_at
