@@ -22,7 +22,9 @@ vars:
 
 models:
   core_platform:
+    +required_tests: {"unique.*|not_null": 2}
     staging:
       +materialized: view
     marts:
       +materialized: table
+      +required_tests: {"relationships": 1}

@@ -11,10 +11,17 @@ models:
         data_type: varchar(16777216)
         constraints:
           - type: not_null 
+        data_tests:
+          - unique
+          - not_null
       - name: location_id
         data_type: varchar(16777216)
       - name: customer_id
         data_type: varchar(16777216)
+        data_tests:
+          - relationships:
+              field: 'customer_id'
+              to: ref('stg_customers')
       - name: order_total
         data_type: number(38,6)
       - name: tax_paid

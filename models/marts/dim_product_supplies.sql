@@ -1,3 +1,9 @@
+{{
+    config(
+        required_tests= {"relationships": 0}
+    )
+}}
+
 with products as (
     select * from {{ ref('stg_products') }}
 ),

@@ -8,8 +8,16 @@ models:
         data_type: varchar(16777216)
         constraints:
           - type: not_null
+        data_tests:
+          - unique
+          - not_null
       - name: order_id
         data_type: varchar(16777216)
+        data_tests:
+          - not_null
+          - relationships:
+              field: 'order_id'
+              to: ref('fct_orders')
       - name: product_id
         data_type: varchar(16777216)
       - name: location_id
